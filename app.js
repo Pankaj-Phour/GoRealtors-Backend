@@ -15,6 +15,14 @@ const TeamController = require('./controllers/team.js');
 const UserController = require('./controllers/contact.js');
 
 
+const serverRefresher = ()=>{
+    setInterval(() => {
+      console.log("Wake up") 
+    }, (14*60*1000));
+}
+
+serverRefresher();
+
 app.get('/',(req,res)=>{
     res.send({
         code:200,

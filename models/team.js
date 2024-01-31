@@ -1,31 +1,31 @@
 const mongoose = require('mongoose');
 
 const teamSchema = new mongoose.Schema({
-    agent_name:{
+    name:{
         type:String,
         required : true
     },
-    agent_image:{
+    image:{
         type:String,
         required:true
     },
-    agent_text:{
+    text:{
         type:String,
         required:true
     },
-    agent_mobile:{
+    mobile:{
         type:Number,
         required:true
     },
-    agent_email:{
+    email:{
         type:String,
         required:true
     },
-    agent_facebook:{
+    facebook:{
         type:String,
         required:true
     },
-    agent_instagram:{
+    instagram:{
         type:String,
         required:true
     }
@@ -33,4 +33,4 @@ const teamSchema = new mongoose.Schema({
 })
 
 const teamModel = mongoose.model('agent',teamSchema);
-module.export = teamModel;
+module.exports = teamModel;

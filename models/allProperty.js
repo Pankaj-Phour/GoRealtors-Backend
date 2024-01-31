@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
 
-const Property = mongoose.Schema({
+const Property = new mongoose.Schema({
     society_name:{
         type:String,
-        required:true
+        required:[true,"Property name is required"],
+        unique:[true,"A Property already exists with the same name"]
     },
     society_location:{
         type:String,

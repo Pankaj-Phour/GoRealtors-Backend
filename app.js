@@ -10,13 +10,27 @@ app.use(cors());
 app.use(express.json({limit:'200mb'}));
 
 
-app.use('/',(req,res)=>{
+const PropertyController = require('./controllers/allProperty.js');
+const TeamController = require('./controllers/team.js');
+const UserController = require('./controllers/contact.js');
+
+
+app.get('/',(req,res)=>{
     res.send({
         code:200,
         message:'Backend is running successfully',
         response:{}
     })
 })
+
+
+app.get('/allProperties',PropertyController.allProperty);
+app.get('/allAgents',TeamController.getTeam);
+app.get('/allUsers',UserController.getUsers);
+
+app.post('/postProperty',PropertyController.postProperty);
+app.post('/addAgent',TeamController.addMember);
+app.post('/contact',UserController.addUser);
 
 
 

@@ -20,7 +20,7 @@ const serverRefresher = ()=>{
     setInterval(() => {
       console.log("Wake up")
        axios.get(`${process.env.DOMAIN}/healthChecker`)
-    }, (14**60*1000));
+    }, (14*60*1000));
 }
 
 

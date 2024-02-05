@@ -19,8 +19,8 @@ const UserController = require('./controllers/contact.js');
 const serverRefresher = ()=>{
     setInterval(() => {
       console.log("Wake up")
-       axios.get('/healthChecker')
-    }, (14*60*1000));
+       axios.get(`${process.env.Domain}/healthChecker`)
+    }, (14*1000));
 }
 
 

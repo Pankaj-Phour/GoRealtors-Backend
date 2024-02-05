@@ -19,7 +19,7 @@ const UserController = require('./controllers/contact.js');
 const serverRefresher = ()=>{
     setInterval(() => {
       console.log("Wake up")
-       axios.get(`${process.env.Domain}/healthChecker`)
+       axios.get(`${process.env.DOMAIN}/healthChecker`)
     }, (14*1000));
 }
 
@@ -37,7 +37,17 @@ app.get('/allProperties',PropertyController.allProperty);
 app.get('/allAgents',TeamController.getTeam);
 app.get('/allUsers',UserController.getUsers);
 app.get('/healthChecker',(req,res)=>{
-    res.status(200).send('wake up')
+    try{
+        res.status(200).send('wake up')
+    }
+    catch(err){
+        res.status(200).send({
+            code:400,
+            error:true,
+            message:err.message,
+            response:[]
+        })
+    }
 });
 
 app.post('/postProperty',PropertyController.postProperty);
